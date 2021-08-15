@@ -3,7 +3,8 @@ import {
   Container,
   Heading,
   Center,
-  Text
+  Text,
+  Badge
 } from '@chakra-ui/react'
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -14,6 +15,17 @@ import theme from './helpers/theme'
 
 import '@fontsource/atkinson-hyperlegible/400.css'
 import '@fontsource/atkinson-hyperlegible/700.css'
+
+const GitVersion = () => (
+  <Badge
+    fontSize='sm'
+    position='fixed'
+    left='10px'
+    bottom='10px'
+    colorScheme='purple'>
+    {GIT_COMMIT}
+  </Badge>
+)
 
 const App = () => {
   return (
@@ -28,6 +40,7 @@ const App = () => {
         <FoxMachine />
         <Blurbs />
       </Container>
+      <GitVersion />
     </ChakraProvider>
   )
 }
