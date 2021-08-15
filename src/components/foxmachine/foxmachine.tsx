@@ -16,7 +16,7 @@ import IColorKey from '../../interfaces/icolorkey'
 import FoxSvg from '../../imgs/fox'
 
 const FoxMachine = () => {
-  const [debug, setDebug] = useState(true)
+  const [debug, setDebug] = useState(false)
   const [colorKeys, setColorKeys] = useState<IColorKey[]>([])
   const [inputText, setInputText] = useState('')
   const [inputMD5, setInputMD5] = useState('')
