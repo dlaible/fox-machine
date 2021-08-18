@@ -10,6 +10,7 @@ import { md5 } from 'hash-wasm'
 import React, { useState, useEffect } from 'react'
 
 import DebugData from '../../components/debugdata/debugdata'
+import Favorite from '../../components/favorite/favorite'
 import { getColorKeysFromMD5 } from '../../helpers/picker'
 import IColorKey from '../../interfaces/icolorkey'
 
@@ -27,6 +28,9 @@ const FoxMachine = () => {
   // Functions
 
   const updateColorKeys = (text: string) => {
+    // Set the state input text
+    setInputText(text)
+
     // Reset the relevant data to defaults when the input is invalid.
     // Note that all non-empty strings are valid input
     if (text.length === 0) {
@@ -48,23 +52,32 @@ const FoxMachine = () => {
 
   const handleInputChange = (e: React.FormEvent<HTMLInputElement>) => {
     const text = e.currentTarget.value
-    setInputText(text)
-    // Note that the input value has to be passed in here rather than
-    // just pulling from the state since React may not yet have updated
-    // the state
     updateColorKeys(text)
   }
 
+  const handleClickFavorite = (text: string) => updateColorKeys(text)
   const handleDebugChange = () => setDebug(!debug)
+
+  // Define favorite word components
+  const favorites = [
+    'hello world',
+    'slick',
+    'maya',
+    'radical',
+    'secret',
+  ].map((t) => <Favorite key={t} text={t} handleClick={handleClickFavorite} />)
 
   return (
     <>
-      <HStack>
+      <HStack mt='5'>
+        <HStack>
+          {favorites}
+        </HStack>
         <Spacer />
         <Checkbox isChecked={debug} size='sm' onChange={handleDebugChange}>debug mode</Checkbox>
       </HStack>
       <Input
-        mt='1'
+        mt='2'
         size='lg'
         focusBorderColor='whiteAlpha.50'
         onChange={handleInputChange}
