@@ -1,6 +1,8 @@
 # fox machine 📠
 
-> Have you ever wanted to convert any single word into a ~semi~ unique, colorful image of a cute fox enjoying ice cream? Well now you can finally sleep well at night knowing a solution exists.
+<img src="logo.png">
+
+> Have you ever wanted to convert any single word into a *semi* unique, colorful image of a cute fox enjoying ice cream? Well now you can finally sleep well at night knowing a solution exists.
 
 [View Demo](https://dlaible.github.io/fox-machine/)
 
